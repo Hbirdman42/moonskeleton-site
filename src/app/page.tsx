@@ -1,65 +1,113 @@
-import Image from "next/image";
+import Link from "next/link";
+import ProductCard from "@/components/ProductCard";
+import CollectionCard from "@/components/CollectionCard";
+import NewsletterForm from "@/components/NewsletterForm";
+import { getCollections, getFeaturedProducts } from "@/lib/data";
 
-export default function Home() {
+export default async function Home() {
+  const [collections, featuredProducts] = await Promise.all([
+    getCollections(),
+    getFeaturedProducts(),
+  ]);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <>
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-grid">
+        <div className="bg-radial-fade absolute inset-0" />
+        <div className="relative mx-auto max-w-7xl px-6 py-28 md:py-40 text-center">
+          <h1 className="font-sans text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight glow-text text-accent animate-slide-up">
+            Moon Skeleton
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-4 text-xl md:text-2xl text-foreground/70 animate-slide-up font-body" style={{ animationDelay: "0.2s" }}>
+            Loves You
           </p>
+          <p className="mt-6 max-w-lg mx-auto text-sm md:text-base text-muted animate-slide-up font-body" style={{ animationDelay: "0.4s" }}>
+            Fan-made merch inspired by the cosmic sounds of King Gizzard &amp;
+            the Lizard Wizard. Tees, blankets, and original designs crafted with
+            love.
+          </p>
+          <div className="mt-8 flex gap-4 justify-center animate-slide-up" style={{ animationDelay: "0.6s" }}>
+            <Link
+              href="/collections"
+              className="px-8 py-3 rounded-lg bg-accent-dim text-white font-semibold hover:bg-accent transition-colors text-sm"
+            >
+              Browse Collections
+            </Link>
+            <Link
+              href="/about"
+              className="px-8 py-3 rounded-lg border border-border text-foreground font-semibold hover:border-accent hover:text-accent transition-colors text-sm"
+            >
+              Our Story
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </section>
+
+      {/* Collections */}
+      <section className="mx-auto max-w-7xl px-6 py-16">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground font-sans">
+            Browse Our Swag
+          </h2>
+          <Link
+            href="/collections"
+            className="text-sm text-accent hover:underline"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            View all
+          </Link>
         </div>
-      </main>
-    </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {collections.map((collection) => (
+            <CollectionCard key={collection.id} collection={collection} />
+          ))}
+        </div>
+      </section>
+
+      {/* Featured products */}
+      <section className="mx-auto max-w-7xl px-6 py-16 border-t border-border">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground font-sans">
+            Featured Gear
+          </h2>
+          <Link
+            href="/collections"
+            className="text-sm text-accent hover:underline"
+          >
+            Shop all
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          {featuredProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      </section>
+
+      {/* About teaser */}
+      <section className="border-t border-border bg-surface">
+        <div className="mx-auto max-w-4xl px-6 py-20 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground font-sans mb-4">
+            Who is Moon Skeleton?
+          </h2>
+          <p className="text-muted max-w-2xl mx-auto leading-relaxed font-body">
+            Just a fan making things for fans. MoonSkeleton started with a
+            simple idea: the Gizzverse deserves gear as wild as the music. Every
+            design is a labor of love, inspired by the psychedelic, thrash,
+            microtonal, jazz-infused madness of King Gizzard &amp; the Lizard
+            Wizard.
+          </p>
+          <Link
+            href="/about"
+            className="inline-block mt-6 text-sm text-accent hover:underline"
+          >
+            Read more about us &rarr;
+          </Link>
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <NewsletterForm />
+    </>
   );
 }
