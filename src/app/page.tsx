@@ -15,7 +15,7 @@ export default async function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-grid">
+      <section className="relative overflow-hidden bg-foreground text-background bg-grid">
         <div className="bg-radial-fade absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32 text-center">
           <div className="flex justify-center animate-slide-up">
@@ -25,10 +25,10 @@ export default async function Home() {
               width={320}
               height={320}
               priority
-              className="h-48 w-48 md:h-72 md:w-72 object-contain animate-float drop-shadow-[0_0_35px_rgba(192,132,252,0.45)]"
+              className="h-48 w-48 md:h-72 md:w-72 object-contain drop-shadow-[0_0_35px_rgba(236,230,214,0.25)]"
             />
           </div>
-          <p className="mt-6 max-w-lg mx-auto text-sm md:text-base text-muted animate-slide-up font-body" style={{ animationDelay: "0.3s" }}>
+          <p className="mt-6 max-w-lg mx-auto text-sm md:text-base text-background/70 animate-slide-up font-body" style={{ animationDelay: "0.3s" }}>
             Fan-made merch inspired by the cosmic sounds of King Gizzard &amp;
             the Lizard Wizard. Tees, blankets, and original designs crafted with
             love.
@@ -50,7 +50,7 @@ export default async function Home() {
       {/* Collections */}
       <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground font-sans">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground font-sans">
             Browse Our Swag
           </h2>
           <Link
@@ -70,7 +70,7 @@ export default async function Home() {
       {/* Featured products */}
       <section className="mx-auto max-w-7xl px-6 py-16 border-t border-border">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground font-sans">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground font-sans">
             Featured Gear
           </h2>
           <Link
@@ -90,7 +90,7 @@ export default async function Home() {
       {/* Social */}
       <section className="border-t border-border bg-surface">
         <div className="mx-auto max-w-4xl px-6 py-20 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground font-sans mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground font-sans mb-6">
             Follow the Madness
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-4">

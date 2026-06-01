@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Creepster, Space_Grotesk } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { CartProvider } from "@/lib/cart-context";
 import "./globals.css";
 
-const heading = Creepster({
-  weight: "400",
+const heading = Space_Grotesk({
+  weight: ["500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-heading",
   display: "swap",
@@ -46,12 +47,14 @@ export default function RootLayout({
       className={`${heading.variable} ${body.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-body">
-        <div className="bg-accent-dim text-center text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-white py-2 px-4">
-          Moon Skeleton Loves You
-        </div>
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <CartProvider>
+          <div className="bg-foreground text-center text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-background py-2.5 px-4">
+            Moon Skeleton Loves You
+          </div>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

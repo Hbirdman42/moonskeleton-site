@@ -32,7 +32,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/collections/moon-skeleton-originals"
+                  href="/collections/moon-skeleton-original-designs"
                   className="text-sm text-muted hover:text-accent transition-colors"
                 >
                   Originals

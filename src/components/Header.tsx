@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useCart } from "@/lib/cart-context";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { itemCount, mounted } = useCart();
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
@@ -29,14 +31,17 @@ export default function Header() {
           >
             About
           </Link>
-          <a
-            href={`https://${process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || "moonskeleton.com"}/cart`}
-            className="text-sm font-medium text-muted hover:text-accent transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/cart"
+            className="relative text-sm font-medium text-muted hover:text-accent transition-colors"
           >
             Cart
-          </a>
+            {mounted && itemCount > 0 && (
+              <span className="absolute -right-4 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent-dim px-1 text-[10px] font-bold text-white">
+                {itemCount}
+              </span>
+            )}
+          </Link>
         </div>
 
         {/* Mobile menu button */}
@@ -79,14 +84,13 @@ export default function Header() {
           >
             About
           </Link>
-          <a
-            href={`https://${process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || "moonskeleton.com"}/cart`}
+          <Link
+            href="/cart"
             className="block text-sm font-medium text-muted hover:text-accent"
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={() => setMobileOpen(false)}
           >
-            Cart
-          </a>
+            Cart{mounted && itemCount > 0 ? ` (${itemCount})` : ""}
+          </Link>
         </div>
       )}
     </header>

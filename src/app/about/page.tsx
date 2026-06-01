@@ -15,11 +15,11 @@ export default function AboutPage() {
 
       <div className="space-y-6 text-foreground/80 leading-relaxed font-body">
         <p className="text-lg">
-          Moon Skeleton is a small team of Gizz fans want to share their designs
-          and love for music with the world.
+          Moon Skeleton is a small team of Gizz fans who want to share their
+          designs and love for music with the Gizz community.
         </p>
 
-        <h2 className="text-2xl font-bold text-foreground font-sans mt-10 mb-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground font-sans mt-10 mb-4">
           What We Make
         </h2>
 
@@ -28,16 +28,15 @@ export default function AboutPage() {
             <span className="text-accent font-bold mt-0.5">&#9670;</span>
             <span>
               <strong className="text-foreground">Gizz Gear</strong> &mdash;
-              Parody tees, tribute designs, and deep-cut references that only
-              real fans will get.
+              Parody tees, tribute designs, and references for the fans.
             </span>
           </li>
           <li className="flex items-start gap-3">
             <span className="text-accent font-bold mt-0.5">&#9670;</span>
             <span>
               <strong className="text-foreground">Moon Skeleton Originals</strong>{" "}
-              &mdash; Our own original artwork and designs, still rooted in the
-              same psychedelic aesthetic.
+              &mdash; Our own artwork and designs, still rooted in the same
+              psychedelic aesthetic.
             </span>
           </li>
           <li className="flex items-start gap-3">
@@ -51,14 +50,14 @@ export default function AboutPage() {
           </li>
         </ul>
 
-        <h2 className="text-2xl font-bold text-foreground font-sans mt-10 mb-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground font-sans mt-10 mb-4">
           Philosophy
         </h2>
 
         <p>
           Moon Skeleton loves you. I&apos;m serious, I mean I fricking love you. I
           fantasize about us going in on property together, raising kids and
-          growing old with you. I think the the vacations we will go on, the
+          growing old together. I think about the vacations we will go on, the
           nights in, the arguments, the stress, the reconciliation, the make up
           sex, the drug fueled rampages, the mutual agreements to go to another
           room to fart. What was I talking about? Anyway I hope you like the
