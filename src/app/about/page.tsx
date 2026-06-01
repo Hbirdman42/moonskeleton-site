@@ -15,23 +15,8 @@ export default function AboutPage() {
 
       <div className="space-y-6 text-foreground/80 leading-relaxed font-body">
         <p className="text-lg">
-          MoonSkeleton was born out of a simple love for music, art, and the
-          endlessly creative universe of King Gizzard &amp; the Lizard Wizard.
-        </p>
-
-        <p>
-          What started as a few designs scribbled at shows and in late-night
-          listening sessions has grown into a small collection of fan-made gear
-          that we hope does justice to the wild, genre-defying spirit of the
-          band.
-        </p>
-
-        <p>
-          Every t-shirt, every woven blanket, every original design is made with
-          the same energy that goes into a 3-hour Gizz set: relentless,
-          psychedelic, and a little bit unhinged. We draw from album art, song
-          lyrics, and the general cosmic chaos of the Gizzverse to create merch
-          that fans actually want to wear and live with.
+          Moon Skeleton is a small team of Gizz fans want to share their designs
+          and love for music with the world.
         </p>
 
         <h2 className="text-2xl font-bold text-foreground font-sans mt-10 mb-4">
@@ -67,13 +52,17 @@ export default function AboutPage() {
         </ul>
 
         <h2 className="text-2xl font-bold text-foreground font-sans mt-10 mb-4">
-          A Note on the Name
+          Philosophy
         </h2>
 
         <p>
-          Moon Skeleton Loves You. That&apos;s it. That&apos;s the vibe. We&apos;re just
-          skeletons floating through space, vibing to microtonal banana jams and
-          thrash metal about climate change. If you get it, you get it.
+          Moon Skeleton loves you. I&apos;m serious, I mean I fricking love you. I
+          fantasize about us going in on property together, raising kids and
+          growing old with you. I think the the vacations we will go on, the
+          nights in, the arguments, the stress, the reconciliation, the make up
+          sex, the drug fueled rampages, the mutual agreements to go to another
+          room to fart. What was I talking about? Anyway I hope you like the
+          merch.
         </p>
 
         <div className="mt-12 p-6 rounded-xl bg-surface border border-border text-center">

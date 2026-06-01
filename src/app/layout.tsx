@@ -46,6 +46,9 @@ export default function RootLayout({
       className={`${heading.variable} ${body.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-body">
+        <div className="bg-accent-dim text-center text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-white py-2 px-4">
+          Moon Skeleton Loves You
+        </div>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
