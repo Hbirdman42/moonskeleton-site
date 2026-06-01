@@ -48,7 +48,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col font-body">
         <CartProvider>
-          <div className="bg-foreground text-center text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-background py-2.5 px-4">
+          <div className="bg-background border-b border-border text-center text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-foreground py-2.5 px-4">
             Moon Skeleton Loves You
           </div>
           <Header />

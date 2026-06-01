@@ -15,7 +15,7 @@ export default async function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-foreground text-background bg-grid">
+      <section className="relative overflow-hidden bg-background text-foreground bg-grid">
         <div className="bg-radial-fade absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32 text-center">
           <div className="flex justify-center animate-slide-up">
@@ -25,10 +25,10 @@ export default async function Home() {
               width={320}
               height={320}
               priority
-              className="h-48 w-48 md:h-72 md:w-72 object-contain drop-shadow-[0_0_35px_rgba(236,230,214,0.25)]"
+              className="glow-moon h-48 w-48 md:h-72 md:w-72 object-contain"
             />
           </div>
-          <p className="mt-6 max-w-lg mx-auto text-sm md:text-base text-background/70 animate-slide-up font-body" style={{ animationDelay: "0.3s" }}>
+          <p className="mt-6 max-w-lg mx-auto text-sm md:text-base text-foreground/70 animate-slide-up font-body" style={{ animationDelay: "0.3s" }}>
             Fan-made merch inspired by the cosmic sounds of King Gizzard &amp;
             the Lizard Wizard. Tees, blankets, and original designs crafted with
             love.

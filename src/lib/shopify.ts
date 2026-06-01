@@ -37,6 +37,7 @@ export interface ShopifyProduct {
         availableForSale: boolean;
         price: ShopifyPrice;
         selectedOptions: Array<{ name: string; value: string }>;
+        image: ShopifyImage | null;
       };
     }>;
   };
@@ -104,6 +105,7 @@ const PRODUCT_FRAGMENT = `
           availableForSale
           price { amount currencyCode }
           selectedOptions { name value }
+          image { url altText width height }
         }
       }
     }

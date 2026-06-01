@@ -39,6 +39,19 @@ export default function ProductDetails({
 
   const currentImage = images[selectedImageIdx];
 
+  function selectOption(name: string, value: string) {
+    const next = { ...selectedOptions, [name]: value };
+    setSelectedOptions(next);
+    const variant = product.variants.edges.find((e) =>
+      e.node.selectedOptions.every((opt) => next[opt.name] === opt.value)
+    )?.node;
+    const variantImageUrl = variant?.image?.url;
+    if (variantImageUrl) {
+      const idx = images.findIndex((img) => img.url === variantImageUrl);
+      if (idx >= 0) setSelectedImageIdx(idx);
+    }
+  }
+
   function handleAddToCart() {
     if (!selectedVariant) return;
     addItem({
@@ -49,7 +62,7 @@ export default function ProductDetails({
         .map((o) => o.value)
         .join(" / "),
       price: selectedVariant.price,
-      image: images[0]?.url ?? null,
+      image: selectedVariant.image?.url ?? currentImage?.url ?? images[0]?.url ?? null,
     });
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
@@ -123,12 +136,7 @@ export default function ProductDetails({
               {option.values.map((value) => (
                 <button
                   key={value}
-                  onClick={() =>
-                    setSelectedOptions((prev) => ({
-                      ...prev,
-                      [option.name]: value,
-                    }))
-                  }
+                  onClick={() => selectOption(option.name, value)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium border transition-colors ${
                     selectedOptions[option.name] === value
                       ? "bg-accent-dim text-white border-accent"

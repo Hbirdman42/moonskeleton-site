@@ -34,6 +34,7 @@ function makeProduct(
             availableForSale: true,
             price: { amount: price, currencyCode: "USD" },
             selectedOptions: [{ name: "Size", value: "S" }],
+            image: placeholderImage,
           },
         },
         {
@@ -43,6 +44,7 @@ function makeProduct(
             availableForSale: true,
             price: { amount: price, currencyCode: "USD" },
             selectedOptions: [{ name: "Size", value: "M" }],
+            image: placeholderImage,
           },
         },
         {
@@ -52,6 +54,7 @@ function makeProduct(
             availableForSale: true,
             price: { amount: price, currencyCode: "USD" },
             selectedOptions: [{ name: "Size", value: "L" }],
+            image: placeholderImage,
           },
         },
         {
@@ -61,6 +64,7 @@ function makeProduct(
             availableForSale: true,
             price: { amount: price, currencyCode: "USD" },
             selectedOptions: [{ name: "Size", value: "XL" }],
+            image: placeholderImage,
           },
         },
       ],

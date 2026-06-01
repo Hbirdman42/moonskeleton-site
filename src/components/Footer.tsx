@@ -64,24 +64,20 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href={`https://${process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || "moonskeleton.com"}/policies/shipping-policy`}
+                <Link
+                  href="/shipping-policy"
                   className="text-sm text-muted hover:text-accent transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
                 >
                   Shipping Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href={`https://${process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || "moonskeleton.com"}/policies/refund-policy`}
+                <Link
+                  href="/returns-refunds"
                   className="text-sm text-muted hover:text-accent transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
                 >
                   Returns & Refunds
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
