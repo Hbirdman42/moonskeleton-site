@@ -1,5 +1,5 @@
 const PROMO_TEXT =
-  "15% with code FOV2026 on check out. Good until end of FOV";
+  "15% off with code FOV2026 on check out, good until September";
 
 export default function PromoBanner() {
   const items = Array.from({ length: 8 });
