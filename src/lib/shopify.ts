@@ -92,12 +92,12 @@ const PRODUCT_FRAGMENT = `
       minVariantPrice { amount currencyCode }
       maxVariantPrice { amount currencyCode }
     }
-    images(first: 10) {
+    images(first: 100) {
       edges {
         node { url altText width height }
       }
     }
-    variants(first: 50) {
+    variants(first: 100) {
       edges {
         node {
           id
