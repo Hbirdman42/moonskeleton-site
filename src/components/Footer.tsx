@@ -1,6 +1,21 @@
 import Link from "next/link";
+import { getCollections } from "@/lib/data";
 
-export default function Footer() {
+async function getShopLinks(): Promise<Array<{ href: string; label: string }>> {
+  try {
+    const collections = await getCollections();
+    return collections.map((collection) => ({
+      href: `/collections/${collection.handle}`,
+      label: collection.title,
+    }));
+  } catch {
+    return [{ href: "/collections", label: "All Collections" }];
+  }
+}
+
+export default async function Footer() {
+  const shopLinks = await getShopLinks();
+
   return (
     <footer className="border-t border-border bg-surface mt-auto">
       <div className="mx-auto max-w-7xl px-6 py-12">
@@ -22,30 +37,16 @@ export default function Footer() {
               Shop
             </h4>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/collections/gizz-gear"
-                  className="text-sm text-muted hover:text-accent transition-colors"
-                >
-                  Gizz Gear
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/collections/moon-skeleton-original-designs"
-                  className="text-sm text-muted hover:text-accent transition-colors"
-                >
-                  Originals
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/collections/big-ass-blankets"
-                  className="text-sm text-muted hover:text-accent transition-colors"
-                >
-                  Big Ass Blankets
-                </Link>
-              </li>
+              {shopLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-muted hover:text-accent transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
