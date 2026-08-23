@@ -1,16 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import ProductCard from "@/components/ProductCard";
 import CollectionCard from "@/components/CollectionCard";
 import NewsletterForm from "@/components/NewsletterForm";
 import PromoBanner from "@/components/PromoBanner";
-import { getCollections, getFeaturedProducts } from "@/lib/data";
+import { getCollections } from "@/lib/data";
 
 export default async function Home() {
-  const [collections, featuredProducts] = await Promise.all([
-    getCollections(),
-    getFeaturedProducts(),
-  ]);
+  const collections = await getCollections();
 
   return (
     <>
@@ -50,26 +46,6 @@ export default async function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {collections.map((collection) => (
             <CollectionCard key={collection.id} collection={collection} />
-          ))}
-        </div>
-      </section>
-
-      {/* Featured products */}
-      <section className="mx-auto max-w-7xl px-6 py-16 border-t border-border">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground font-sans">
-            Featured Gear
-          </h2>
-          <Link
-            href="/collections"
-            className="text-sm text-accent hover:underline"
-          >
-            Shop all
-          </Link>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-          {featuredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </section>

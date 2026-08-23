@@ -39,15 +39,3 @@ export async function getAllProducts(): Promise<ShopifyProduct[]> {
   if (!isConfigured) return MOCK_PRODUCTS;
   return shopifyGetAllProducts();
 }
-
-const FEATURED_COLLECTION_HANDLE = "featured";
-
-export async function getFeaturedProducts(): Promise<ShopifyProduct[]> {
-  const featured = await getCollectionByHandle(FEATURED_COLLECTION_HANDLE);
-  const featuredProducts =
-    featured?.products.edges.map((e) => e.node) ?? [];
-  if (featuredProducts.length > 0) return featuredProducts.slice(0, 8);
-
-  const products = await getAllProducts();
-  return products.slice(0, 6);
-}
